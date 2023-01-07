@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:alpine3.17
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -15,5 +15,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 CMD [ "node", "index.js" ]
