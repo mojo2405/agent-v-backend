@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
             console.error('The API returned an error.');
             // throw err;
             res.send();
+            return;
           }
         res.send(res2.data.values);
     });
