@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     const auth = new google.auth.JWT({
         email: process.env.GOOGLE_EMAIL,
         key: process.env.GOOGLE_KEY,
-        scopes: [process.env.GOOGLE_SCOPES]
+        scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
       })
       const sheet = google.sheets("v4");
        sheet.spreadsheets.values.get({
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
       },
       (err, res2) => {
         if (err) {
-            console.error('The API returned an error.');
+            console.error('The API returned an error.' + err);
             // throw err;
             res.send();
             return;
